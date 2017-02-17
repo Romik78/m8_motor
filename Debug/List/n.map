@@ -1,0 +1,45 @@
+RAM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+tick                                                                              0x0160       4
+rx_buffer                                                                         0x0164      20
+tx_buffer                                                                         0x0178      20
+
+EEPROM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                                          Register  Size
+------------------------------------------------------------------------------------------------
+enkdt                                                                             R2.0      1bit
+rx_wr_index                                                                       R5           1
+rx_rd_index                                                                       R4           1
+rx_counter                                                                        R7           1
+rx_buffer_overflow                                                                R2.1      1bit
+tx_wr_index                                                                       R6           1
+tx_rd_index                                                                       R9           1
+tx_counter                                                                        R8           1
+
+FLASH Allocation [words]
+Function                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+ext_int0_isr                                                                      0x0005B      1
+ext_int1_isr                                                                      0x0005C      1
+usart_rx_isr                                                                      0x0005D     27
+usart_tx_isr                                                                      0x00078     20
+putchar                                                                           0x0008C     26
+timer0_ovf_isr                                                                    0x000A6      5
+timer1_compa_isr                                                                  0x000AB      1
+timer1_compb_isr                                                                  0x000AC      1
+timer2_ovf_isr                                                                    0x000AD     29
+timer2_comp_isr                                                                   0x000CA      3
+read_adc                                                                          0x000CD     15
+setpwm_kdt                                                                        0x000DC     30
+stop_kdt                                                                          0x000FA      4
+main                                                                              0x000FE    134
+put_usart_G100                                                                    0x00184     12
+_print_G100                                                                       0x00190    329
+printf                                                                            0x002D9     30
+strlen                                                                            0x002F7     11
+strlenf                                                                           0x00302     12
