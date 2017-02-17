@@ -42,6 +42,10 @@ Data Stack size         : 256
 
 ulong tick;
 bit enkdt;
+byte openeng;
+uint tfor;
+
+
 
 // External Interrupt 0 service routine
 interrupt [EXT_INT0] void ext_int0_isr(void)
@@ -193,14 +197,14 @@ TCNT0=0x9C;
 interrupt [TIM1_COMPA] void timer1_compa_isr(void)
 {
 // Place your code here
-
+FOFF;
 }
 
 // Timer1 output compare B interrupt service routine
 interrupt [TIM1_COMPB] void timer1_compb_isr(void)
 {
 // Place your code here
-
+ FON;
 }
 
 // Timer2 overflow interrupt service routine
@@ -259,11 +263,35 @@ enkdt=0;
 KDTOFF;
 }
 
+void seteng(byte x)
+{
+ openeng=x;
+}
+void stopend()
+{
+ openeng=0;
+}
+
+void setforsunka(uint x)
+{
+uint t=x;
+TCNT1=0;
+OCR1A=t*10;
+OCR1B=t*9;
+TCCR1B=(0<<ICNC1) | (0<<ICES1) | (0<<WGM13) | (1<<WGM12) | (0<<CS12) | (1<<CS11) | (0<<CS10);
+}
+void stopforsunka()
+{
+ TCCR1B=0;  
+ TCNT1=0; 
+ OCR1A=0;
+ OCR1B=0;
+}
 
 void main(void)
 {
 // Declare your local variables here
-const int tadcread=777;
+const int tadcread=500;
 ulong expadcread;
 bit enkdt=0;
 
@@ -377,6 +405,8 @@ SPCR=(0<<SPIE) | (0<<SPE) | (0<<DORD) | (0<<MSTR) | (0<<CPOL) | (0<<CPHA) | (0<<
 TWCR=(0<<TWEA) | (0<<TWSTA) | (0<<TWSTO) | (0<<TWEN) | (0<<TWIE);
 }
 // Init
+openeng=10;
+tfor=160;
 enkdt=0;
 DDRB=0x7;
 
@@ -402,11 +432,13 @@ while (1)
            enkdt^=1;
            if (enkdt)
            {
-                     setpwm_kdt(10);
+                     setpwm_kdt(10); 
+                     stopforsunka();
            }
            else
            {
-                    stop_kdt();
+                    stop_kdt(); 
+                    setforsunka(tick%801);
            }
        expadcread=tick+ tadcread;
        }
