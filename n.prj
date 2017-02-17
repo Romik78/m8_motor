@@ -27,7 +27,7 @@ Active0=0
 EditorPanel0=0
 PageIndex0=0
 EditorPanel1=0
-TimeStamp1=1246858371
+TimeStamp1=1246865188
 PageIndex1=1
 [CompilerDebug]
 Chip=ATmega8
@@ -127,8 +127,8 @@ WatchAVR8LAutoVariables=0
 UseEEPROMLocation0=1
 RebuildAll=0
 LinkageInformationPresent=1
-COFFileTimeStamp=1246865188
-Build=25
+COFFileTimeStamp=1246865660
+Build=26
 [DefinedSymbolsDebug]
 Count=0
 [Compiler]
@@ -230,7 +230,7 @@ UseEEPROMLocation0=1
 RebuildAll=1
 LinkageInformationPresent=0
 COFFileTimeStamp=-1
-Build=25
+Build=26
 IncludePath0=
 IncludePath1=
 IncludePath2=
@@ -462,7 +462,7 @@ L13=Enhanced function parameters passing: Yes
 L14=Automatic register allocation: Yes
 L15=Smart register allocation: Yes
 L16=
-L17=Build: 25
+L17=Build: 26
 L18=9437 line(s) compiled
 L19=No errors
 L20=2 warning(s)
@@ -512,16 +512,16 @@ Row=0
 Column=0
 ScrollPosX=0
 ScrollPosY=0
-TimeStamp=1246858442
+TimeStamp=1246865652
 [BookmarksFoldedCode]
 Files=1
 F1=m.c
 [Bookmarks1]
-TimeStamp=1246858371
-Row=212
-Column=8
+TimeStamp=1246865188
+Row=408
+Column=0
 ScrollPosX=0
-ScrollPosY=212
+ScrollPosY=265
 BK0=-1
 BK1=-1
 BK2=-1
@@ -533,7 +533,7 @@ BK7=-1
 BK8=-1
 BK9=-1
 [FoldedCode1]
-Line1=271
+Line1=299
 Blocks=1
 [HeadersList]
 Files=1
